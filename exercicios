@@ -192,3 +192,66 @@ programa {
 
 7
 
+programa {
+  funcao inicio() {
+
+    inteiro numeroCarteira, multas, valorMulta, maiorMulta
+    inteiro i, mmcarteira, valorTotal, valorDetran, contador 
+
+    numeroCarteira = 1
+    valorTotal = 0
+    maiorMulta = 0
+    mmcarteira = 0
+    valorDetran = 0
+    contador = 1
+
+    enquanto (numeroCarteira != 0){
+        escreva("Insira o numero da carteira de motorista: ")
+        leia(numeroCarteira)
+
+        contador = numeroCarteira
+
+        se (contador > 0){
+
+          escreva("Insira a quantidade de multas: ")
+          leia(multas)
+
+          valorTotal = 0
+
+          para (i = 1; i <= multas; i++){
+            escreva("Insira o valor da multa ", i, ": ")
+            leia(valorMulta)
+            valorTotal = valorTotal + valorMulta
+            valorDetran = valorDetran + valorTotal
+          }
+
+          escreva("Numero da carteira: ", numeroCarteira, "\n")
+          escreva("Quantidade de multas: ", multas, "\n")
+          escreva("Valor total de multas: ", valorTotal, "\n")
+
+          se (multas > maiorMulta){
+            maiorMulta = multas
+            mmcarteira = numeroCarteira
+          }
+          senao se (multas < maiorMulta){
+            mmcarteira = mmcarteira
+         }
+
+        senao se (contador == 0){
+          contador = 0
+        }
+    }
+    }
+
+    escreva("Total de recursos arrecadados: R$", valorDetran, "\n")
+    escreva("Numero da carteira que obteve o maior numero de multas: ", mmcarteira, "\n")
+    escreva("( ", maiorMulta, " multas)")
+
+
+
+  }
+}
+
+
+8
+

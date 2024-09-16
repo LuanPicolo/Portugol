@@ -1,0 +1,88 @@
+1
+
+programa {
+  funcao inicio() {
+
+    real salario_bruto
+    real valor_prestacao
+    real limite_prestacao
+
+    escreva("Digite o salário bruto: R$ ")
+    leia(salario_bruto)
+    escreva("Digite o valor da prestação: R$ ")
+    leia(valor_prestacao)
+    
+    limite_prestacao = salario_bruto / 3
+
+    se (valor_prestacao <= limite_prestacao)
+        escreva("O empréstimo pode ser concedido.\n")
+    senao
+        escreva("O empréstimo não pode ser concedido.\n")
+    
+  }
+}
+
+2
+
+programa {
+  funcao inicio() {
+
+    real peso
+    real altura
+    real imc
+
+    escreva("Digite o peso (em kg): ")
+    leia(peso)
+    escreva("Digite a altura (em metros): ")
+    leia(altura)
+    
+    imc = peso / (altura * altura)
+ 
+    escreva("O seu IMC é: ", imc, "\n")
+    
+    se (imc < 18.5)
+        escreva("Condição: Abaixo do peso\n")
+    senao
+        se (imc < 25)
+            escreva("Condição: Peso normal\n")
+        senao
+            se (imc < 30)
+                escreva("Condição: Sobrepeso\n")
+            senao
+                escreva("Condição: Obesidade\n")
+    
+  }
+}
+
+
+3 incompleto
+
+programa {
+  funcao inicio() {
+    real valor
+    real imposto
+
+    escreva("Digite o valor para calcular o imposto: R$ ")
+    leia(valor)
+    
+    se (valor <= 1200.00) {
+        imposto = 0
+        escreva("Valor: R$ ", valor, " - Isento de imposto\n")
+    }
+    senao
+        se (valor <= 5000.00){
+            imposto = valor * 0.10
+            escreva("Valor: R$ ", valor, " - Imposto de 10%: R$ ", imposto, "\n")
+        }
+        senao
+            se (valor <= 10000.00){
+                imposto = valor * 0.15
+                escreva("Valor: R$ ", valor, " - Imposto de 15%: R$ ", imposto, "\n")
+            }
+            senao
+                imposto = valor * 0.20
+                escreva("Valor: R$ ", valor, " - Imposto de 20%: R$ ", imposto, "\n")
+    
+  }
+}
+

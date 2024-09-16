@@ -55,7 +55,7 @@ programa {
 }
 
 
-3 incompleto
+3 
 
 programa {
   funcao inicio() {
@@ -67,22 +67,128 @@ programa {
     
     se (valor <= 1200.00) {
         imposto = 0
-        escreva("Valor: R$ ", valor, " - Isento de imposto\n")
+        escreva("Valor: R$ ", imposto, " - Isento de imposto\n")
     }
-    senao
-        se (valor <= 5000.00){
-            imposto = valor * 0.10
-            escreva("Valor: R$ ", valor, " - Imposto de 10%: R$ ", imposto, "\n")
-        }
-        senao
-            se (valor <= 10000.00){
-                imposto = valor * 0.15
-                escreva("Valor: R$ ", valor, " - Imposto de 15%: R$ ", imposto, "\n")
-            }
-            senao
-                imposto = valor * 0.20
-                escreva("Valor: R$ ", valor, " - Imposto de 20%: R$ ", imposto, "\n")
+    senao se (valor <= 5000){
+      imposto = valor*0.1
+      escreva("Valor: R$ ", imposto, " - 10% de imposto\n")
+    }
+    senao se (valor <= 10000){
+      imposto = valor*0.15
+      escreva("Valor: R$ ", imposto, " - 15% de imposto\n")
+    }
+    senao se (valor > 10000){
+      imposto = valor*0.2
+      escreva("Valor: R$ ", imposto, " - 20% de imposto\n")
+    }
     
   }
 }
+
+
+4
+
+programa
+{
+	funcao inicio ()
+	{
+   cadeia nome
+   inteiro diarias
+   real taxa
+    real totalPorPessoa
+   real totalGeral
+	inteiro totalDiarias
+   inteiro i
+
+   totalGeral = 0
+   totalDiarias = 0
+   
+   para (i= 1; i <= 10; i++){
+      escreva("Digite o nome da pessoa ", i, ": ")
+	  leia(nome)
+	  
+      escreva("Digite o número de diárias da pessoa ", i, ": ")
+      leia(diarias)
+      
+      se (diarias <= 15)
+         taxa = 20
+      senao
+         taxa = 14
+      
+      totalPorPessoa = (diarias * 300) + taxa
+      totalDiarias = totalDiarias + diarias
+      totalGeral = totalGeral + totalPorPessoa
+      
+      escreva("Nome: ", nome, ", Total a pagar: R$ ", totalPorPessoa, "\n")
+	  
+   }
+   
+   escreva("Total ganho pelo hotel: R$ ", totalGeral, "\n")
+   escreva("Número total de diárias: ", totalDiarias, "\n")
+
+		
+		
+	}
+}
+
+
+5
+
+programa
+{
+	funcao inicio ()
+	{
+   real numero, contador, conta
+
+   escreva("Digite o numero: ")
+   leia(numero)
+
+   contador = numero - 1
+  
+  se (numero == 0){
+    escreva("Resultado: 0! = 1")
+  }
+  senao{
+    enquanto (contador > 0){
+      numero = numero*contador
+      contador = contador - 1
+      escreva(contador, "\n")
+      escreva(conta, "\n")
+    }
+    escreva("Resultado: ", numero)
+  }
+
+	}
+}
+
+6
+
+programa {
+  funcao inicio() {
+
+    real soma_negativos, soma_positivos, valor
+
+    soma_positivos = 0
+    soma_negativos = 0
+    valor = 1
+
+    enquanto (valor != 0){
+        escreva("Digite um valor: ")
+        leia(valor)
+        
+        se (valor < 0){
+            soma_negativos = soma_negativos + valor
+        }
+        senao
+            se (valor > 0){
+                soma_positivos = soma_positivos + valor
+            }
+    }
+    escreva("Soma dos valores negativos: ", soma_negativos, "\n")
+    escreva("Soma dos valores positivos: ", soma_positivos, "\n")
+  }
+}
+
+
+7
 

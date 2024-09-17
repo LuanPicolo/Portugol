@@ -255,3 +255,64 @@ programa {
 
 8
 
+programa {
+  funcao inicio() {
+
+    inteiro i, genero, contFem, contMasc, contOutros
+    real altura, alturaMulheres, alturaTodos, maiorAltura, menorAltura, mediaAlturaFem, mediaAlturaTodos, percentualHomens
+
+
+    alturaMulheres = 0
+    alturaTodos = 0
+    contFem = 0
+    contMasc = 0
+    contOutros = 0
+    maiorAltura = -1
+    menorAltura = 9999
+
+    para (i = 1; i <= 3; i++){
+        escreva("Digite a altura da pessoa ", i, ": ")
+        leia(altura)
+        
+        escreva("Digite o sexo da pessoa ", i, " (0=masc, 1=fem, 2=outros): ")
+        leia(genero)
+        
+        alturaTodos = alturaTodos + altura
+
+        se (altura > maiorAltura){
+            maiorAltura = altura
+        }
+
+        se (altura < menorAltura){
+            menorAltura = altura
+        }
+        
+        se (genero == 0){
+            contMasc = contMasc + 1
+        }
+        senao se (genero == 1){
+            alturaMulheres = alturaMulheres + altura
+            contFem = contFem + 1
+        }
+        senao
+            contOutros = contOutros + 1
+        }
+
+        se (contFem > 0){
+        mediaAlturaFem = alturaMulheres / contFem
+        }
+    senao
+        mediaAlturaFem = 0
+
+    mediaAlturaTodos = alturaTodos / i
+
+    percentualHomens = (contMasc / i) * 100
+
+    escreva("A maior altura encontrada é: ", maiorAltura, "\n")
+    escreva("A menor altura encontrada é: ", menorAltura, "\n")
+    escreva("A média de altura das mulheres é: ", mediaAlturaFem, "\n")
+    escreva("A média de altura da população é: ", mediaAlturaTodos, "\n")
+    escreva("O percentual de homens na população é: ", percentualHomens, "%\n")
+    }
+    
+  }

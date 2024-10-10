@@ -1,0 +1,117 @@
+#1
+programa {
+  funcao inicio() {
+
+    inteiro mat[5][5], i, j, numero, contador
+
+    escreva("Digite os elementos da matriz 5x5 \n")
+    para (i = 0; i <= 4; i++){
+      para (j = 0; j <= 4; j++){
+        escreva("Elemento [", i, "][", j, "]: ")
+        leia(mat[i][j])
+      }
+    }
+
+    contador = 0
+    
+    escreva("Digite o numero a ser buscado: ")
+    leia(numero)
+
+
+    para (i = 0; i <= 4; i++){
+      para (j = 0; j <= 4; j++){
+        se (mat[i][j] == numero){
+         contador = 1
+        }
+      }
+    }
+    se (contador == 1){
+      escreva("Numero encontrado")
+    }
+    senao{
+      escreva("Numero não encontrado")
+    }
+  }
+}
+
+
+#2
+
+programa {
+  funcao inicio() {
+
+    inteiro vet[10], numero, i, cont, pos
+    logico encontrado
+
+    escreva("Preencha o vetor de 10 numeros: ")
+    para (i = 0; i <= 9; i++){
+      escreva("Vetor [", i, "]: ")
+      leia(vet[i])
+    }
+
+    escreva("Digite o número a ser buscado: ")
+    leia(numero)
+
+    para (i = 0; i <= 9; i++){
+      se (vet[i] == numero){
+        pos = i
+        cont = 1
+      }
+    }
+    
+    se (cont == 1){
+      escreva("O numero ", numero, " se encontra na posição [", pos, "]")
+    }
+    senao{
+      escreva("Esse numero não esta no vetor")
+    }
+  }
+}
+
+
+#3
+
+programa{
+  funcao inicio(){
+
+    inteiro n, m, i, j
+    inteiro mat[3][3], trans[3][3]
+
+   escreva("Digite o numero de linhas da matriz: ")
+   leia(n)
+   escreva("Digite o numero de colunas da matriz: ")
+   leia(m)
+
+    para (i = 0; i <= n-1; i++){
+      para (j = 0; j <= m-1; j++){
+        escreva("Elemento [", i+1, "][", j+1, "] : ")
+        leia(mat[i][j])
+      }
+    }
+
+    para (i = 0; i <= n-1; i++){
+      para (j = 0; j<+ m-1; j++){
+        trans[j][i] = mat[i][j]
+      }
+    }
+
+    escreva("Matriz: \n")
+    para (i = 0; i < n; i++){
+      para (j = 0; j < m; j++){
+        escreva(mat[i][j], " | ")
+      }
+      escreva("\n")
+    }
+
+    escreva("Matriz Transposta: \n")
+    para (i = 0; i < m; i++){
+      para (j = 0; j < n; j++){
+        escreva(trans[i][j], " | ")
+      }
+      escreva("\n")
+    }
+
+
+  }  
+}
+

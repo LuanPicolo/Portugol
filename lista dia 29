@@ -1,0 +1,33 @@
+//1 (fibonacci)
+
+programa {
+  funcao inicio() {
+
+    inteiro n
+
+    escreva("Insira o numero: ")
+    leia(n)
+    fibonacci(n)
+
+    
+  }
+
+  funcao inteiro fibonacci(inteiro numero){
+    inteiro teste, i, f1, f2, f3
+
+    f1 = 0
+    f2 = 1
+    f3 = 0
+
+    para (i = 0; i <= numero; i++){
+      f3 = f1 + f2
+      escreva(f3, " | ")
+      f1 = f2
+      f2 = f3
+    }
+    retorne teste
+  }
+}
+
+
+//2 

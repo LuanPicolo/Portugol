@@ -138,4 +138,33 @@ programa {
 }
 
 
-//5
+//5 TERMINAR
+
+programa {
+  funcao inicio() {
+    inteiro n, i, j
+    inteiro c, t, soma
+
+    c = 0
+    t = 0
+    soma = 0
+
+    escreva("Digite o tamanho da matriz: ")
+    leia(n)
+
+    inteiro mat[n][n]
+
+    para(i = 0; i <= n-1; i++){
+      para(j = 0; j <= n-1; j++){
+        escreva("Elemento [", i+1, "][", j+1, "]: ")
+        leia(mat[i][j])
+      }
+    }
+
+      para(t = 0; t <= j; t++){
+        soma = soma + mat[0][t]
+      }
+    escreva(soma)
+  }
+}
+

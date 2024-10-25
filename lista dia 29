@@ -31,3 +31,111 @@ programa {
 
 
 //2 
+
+programa {
+  inclua biblioteca Util
+
+  funcao inicio() {
+    inteiro n, adv
+
+    adv = Util.sorteia(1, 100)
+
+    escreva("Tente adivinhar o número: ")
+    leia(n)
+
+    enquanto(n != adv){
+      escreva(adv, "\n")
+      se(n > adv){
+        escreva("O numero é menor \n")
+      }
+      senao{
+        escreva("O numero é maior \n")
+      }
+      leia(n)
+    }
+
+    escreva("Correto, o número era ", adv)
+  }
+}
+
+
+//3
+
+programa {
+
+  funcao conta(inteiro base, inteiro expo){
+    inteiro resultado, i
+    
+    resultado = 1
+
+    para(i = 1; i <= expo; i++){
+      resultado = resultado * base
+    }
+    escreva(resultado)
+    
+  }
+  funcao inicio() {
+    inteiro base, expo
+
+    escreva("Base\n")
+    leia(base)
+    escreva("Exponencial\n")
+    leia(expo)
+    
+    escreva("Resultado: "conta(base, expo))
+  }
+}
+
+
+//4
+
+programa {
+  funcao inicio() {
+    cadeia usuario, senha, usuarioL, senhaL
+    caracter res
+    inteiro i
+
+    escreva("Insira seu nome de usuario para o cadastro: ")
+    leia(usuario)
+    escreva("Insira sua senha para o cadastro: ")
+    leia(senha)
+
+    escreva("Usuario cadastrado!\n")
+    escreva("Deseja fazer o login? (s / n): ")
+    leia(res)
+
+    i = 0
+
+    se(res == "s"){
+      enquanto(i <= 3){
+        escreva("Insira seu nome de usario: ")
+        leia(usuarioL)
+        escreva("Insira sua senha: ")
+        leia(senhaL)
+
+        se(usuarioL == usuario){
+          se(senhaL == senha){
+            pare
+          }
+        }
+        senao
+          escreva("Usuario ou senha incorretos\n")
+          i = i + 1
+      }
+
+      se(i == 3){
+        escreva("Acesso bloqueado")
+      }
+      senao se(i != 3){
+        escreva("Login feito com sucesso!")
+      }
+    }
+
+    senao se(res == "n"){
+      escreva("Programa encerrado")
+    }
+  }
+}
+
+
+//5

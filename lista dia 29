@@ -138,33 +138,124 @@ programa {
 }
 
 
-//5 TERMINAR
+//5
 
 programa {
   funcao inicio() {
     inteiro n, i, j
-    inteiro c, t, soma
 
-    c = 0
-    t = 0
-    soma = 0
-
-    escreva("Digite o tamanho da matriz: ")
+    escreva("Digite o tamanho da matriz (N): ")
     leia(n)
 
     inteiro mat[n][n]
 
-    para(i = 0; i <= n-1; i++){
-      para(j = 0; j <= n-1; j++){
+    para(i = 0; i < n; i++) {
+      para(j = 0; j < n; j++) {
         escreva("Elemento [", i+1, "][", j+1, "]: ")
         leia(mat[i][j])
       }
     }
 
-      para(t = 0; t <= j; t++){
-        soma = soma + mat[0][t]
+    se (verif(mat, n)) {
+      escreva("A matriz é um quadrado mágico!")
+    } senao {
+      escreva("A matriz não é um quadrado mágico.")
+    }
+  }
+
+  funcao logico verif(inteiro mat[][], inteiro n) {
+    inteiro i, j
+    inteiro somaReferencia = 0
+    inteiro somaLinha, somaColuna, somaDiag1 = 0, somaDiag2 = 0
+
+    para(j = 0; j < n; j++) {
+      somaReferencia = somaReferencia + mat[0][j]
+    }
+
+    para(i = 0; i < n; i++) {
+      somaLinha = 0
+      somaColuna = 0
+
+      para(j = 0; j < n; j++) {
+        somaLinha = somaLinha + mat[i][j]
+        somaColuna = somaColuna + mat[j][i]
       }
-    escreva(soma)
+
+      se (somaLinha != somaReferencia){
+        se (somaColuna != somaReferencia){
+        retorne falso
+        }
+      }
+    }
+
+    para(i = 0; i < n; i++) {
+      somaDiag1 = somaDiag1 + mat[i][i]
+      somaDiag2 = somaDiag2 + mat[i][n - 1 - i]
+    }
+    se (somaDiag1 != somaReferencia) {
+      se (somaDiag2 != somaReferencia){
+      retorne falso
+    }
+    }
+    retorne verdadeiro
   }
 }
+
+//6 CONSERTAR CODIGO
+
+programa {
+    funcao inicio() {
+        inteiro numero
+        
+        escreva("Digite um número inteiro: ")
+        leia(numero)
+        
+        escreva("Representação Binária: ", paraBinario(numero), "\n")
+        escreva("Representação Hexadecimal: ", paraHexa(numero))
+    }
+
+    // Função para converter um número inteiro para binário
+    funcao cadeia paraBinario(inteiro num) {
+        cadeia binario = ""
+        caracter teste
+        
+        se (num == 0) {
+            retorne "0"
+        }
+
+        enquanto (num > 0) {
+            teste = num % 2 + binario
+            binario = teste + binario // Converte inteiro para caractere
+            num = num / 2
+        }
+        
+        retorne binario
+    }
+
+    // Função para converter um número inteiro para hexadecimal
+    funcao cadeia paraHexa(inteiro num) {
+        cadeia hexa = ""
+        
+        se (num == 0) {
+            retorne "0"
+        }
+
+        enquanto (num > 0) {
+            hexa = digitoHexa(num % 16) + hexa // Adiciona o caractere do resto à frente da string
+            num = num / 16
+        }
+        
+        retorne hexa
+    }
+
+    // Função auxiliar para converter um dígito para hexadecimal
+    funcao caracter digitoHexa(inteiro digito) {
+        caracter hex[16] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'}
+        
+        retorne hex[digito]
+    }
+}
+
+
+// 7
 

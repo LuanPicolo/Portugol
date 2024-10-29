@@ -259,3 +259,147 @@ programa {
 
 // 7
 
+programa {
+  funcao inicio() {
+    inteiro N, M, valor
+
+    escreva("Digite o número de linhas da matriz: ")
+    leia(N)
+    escreva("Digite o número de colunas da matriz: ")
+    leia(M)
+
+    inteiro matriz[N][M]
+
+    para (inteiro i = 0; i < N; i++) {
+      para (inteiro j = 0; j < M; j++) {
+        escreva("Digite o elemento [", i + 1, "][", j + 1, "]: ")
+        leia(matriz[i][j])
+      }
+    }
+
+    escreva("Digite o valor a ser buscado: ")
+    leia(valor)
+
+    escreva(buscarValor(matriz, N, M, valor), "\n")
+  }
+
+  funcao cadeia buscarValor(inteiro matriz[][], inteiro N, inteiro M, inteiro valor) {
+    inteiro linha = 0
+    inteiro coluna = M - 1
+
+    enquanto (linha < N e coluna >= 0) {
+      se (matriz[linha][coluna] == valor) {
+        retorne "Valor encontrado na posição: (" + (linha + 1) + ", " + (coluna + 1) + ")"
+      } senao se (matriz[linha][coluna] > valor) {
+        coluna = coluna - 1
+      } senao {
+        linha = linha + 1
+      }
+    }
+
+    retorne "Valor não encontrado na matriz"
+  }
+}
+
+
+//8
+
+programa {
+    funcao inicio() {
+        inteiro tamanho1, tamanho2
+        
+        escreva("Digite o tamanho do primeiro vetor: ")
+        leia(tamanho1)
+        
+        inteiro vetor1[tamanho1]
+        escreva("Digite os elementos do primeiro vetor:\n")
+        para (inteiro i = 0; i < tamanho1; i++) {
+            escreva("Elemento ", i + 1, ": ")
+            leia(vetor1[i])
+        }
+
+        escreva("Digite o tamanho do segundo vetor: ")
+        leia(tamanho2)
+        
+        inteiro vetor2[tamanho2]
+        escreva("Digite os elementos do segundo vetor:\n")
+        para (inteiro j = 0; j < tamanho2; j++) {
+            escreva("Elemento ", j + 1, ": ")
+            leia(vetor2[j])
+        }
+
+        inteiro intersecao[100]
+        inteiro tamanhoIntersecao
+
+        tamanhoIntersecao = encontrarIntersecao(vetor1, tamanho1, vetor2, tamanho2, intersecao)
+
+        se (tamanhoIntersecao > 0) {
+            escreva("Vetor de interseção: ")
+            para (inteiro k = 0; k < tamanhoIntersecao; k++) {
+                escreva(intersecao[k], " ")
+            }
+            escreva("\n")
+        } senao {
+            escreva("Não há elementos comuns entre os vetores.\n")
+        }
+
+        inteiro uniao[200]
+        inteiro tamanhoUniao = unirVetores(vetor1, tamanho1, vetor2, tamanho2, uniao)
+
+        escreva("Valor repetido: ")
+        para (inteiro l = 0; l < tamanhoUniao; l++) {
+            escreva(uniao[l], " ")
+        }
+    }
+
+    funcao inteiro encontrarIntersecao(inteiro vetor1[], inteiro tamanho1, inteiro vetor2[], inteiro tamanho2, inteiro intersecao[]) {
+        inteiro posicao = 0
+
+        para (inteiro i = 0; i < tamanho1; i++) {
+
+            se (existeNoVetor(vetor2, tamanho2, vetor1[i]) e naoExisteNoVetor(intersecao, posicao, vetor1[i])) {
+                intersecao[posicao] = vetor1[i]
+                posicao++
+            }
+        }
+
+        retorne posicao
+    }
+
+    funcao inteiro unirVetores(inteiro vetor1[], inteiro tamanho1, inteiro vetor2[], inteiro tamanho2, inteiro uniao[]) {
+        inteiro posicao = 0
+
+        para (inteiro i = 0; i < tamanho1; i++) {
+            uniao[posicao] = vetor1[i]
+            posicao++
+        }
+
+        para (inteiro j = 0; j < tamanho2; j++) {
+
+            se (naoExisteNoVetor(uniao, posicao, vetor2[j])) {
+                uniao[posicao] = vetor2[j]
+                posicao++
+            }
+        }
+
+        retorne posicao
+    }
+
+    funcao logico existeNoVetor(inteiro vetor[], inteiro tamanho, inteiro elemento) {
+        para (inteiro i = 0; i < tamanho; i++) {
+            se (vetor[i] == elemento) {
+                retorne verdadeiro
+            }
+        }
+        retorne falso
+    }
+
+    funcao logico naoExisteNoVetor(inteiro vetor[], inteiro tamanho, inteiro elemento) {
+        para (inteiro i = 0; i < tamanho; i++) {
+            se (vetor[i] == elemento) {
+                retorne falso
+            }
+        }
+        retorne verdadeiro
+    }
+}

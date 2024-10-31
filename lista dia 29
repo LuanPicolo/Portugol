@@ -201,7 +201,7 @@ programa {
   }
 }
 
-//6 CONSERTAR CODIGO
+//6 CONSERTEI O CODIGO
 
 programa {
     funcao inicio() {
@@ -214,25 +214,25 @@ programa {
         escreva("Representação Hexadecimal: ", paraHexa(numero))
     }
 
-    // Função para converter um número inteiro para binário
     funcao cadeia paraBinario(inteiro num) {
         cadeia binario = ""
-        caracter teste
         
         se (num == 0) {
             retorne "0"
         }
 
         enquanto (num > 0) {
-            teste = num % 2 + binario
-            binario = teste + binario // Converte inteiro para caractere
+            se (num % 2 == 1) {
+                binario = "1" + binario
+            } senao {
+                binario = "0" + binario
+            }
             num = num / 2
         }
         
         retorne binario
     }
 
-    // Função para converter um número inteiro para hexadecimal
     funcao cadeia paraHexa(inteiro num) {
         cadeia hexa = ""
         
@@ -241,14 +241,13 @@ programa {
         }
 
         enquanto (num > 0) {
-            hexa = digitoHexa(num % 16) + hexa // Adiciona o caractere do resto à frente da string
+            hexa = digitoHexa(num % 16) + hexa
             num = num / 16
         }
         
         retorne hexa
     }
 
-    // Função auxiliar para converter um dígito para hexadecimal
     funcao caracter digitoHexa(inteiro digito) {
         caracter hex[16] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'}
         
